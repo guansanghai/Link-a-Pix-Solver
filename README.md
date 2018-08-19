@@ -9,27 +9,27 @@ Solving [Link-a-Pix puzzles](http://www.conceptispuzzles.com/index.aspx?uri=puzz
 
 ## Samples
 
-20×20 puzzle – “Tennis”
+* 20×20 puzzle – “Tennis”
 
 ![Tennis](/Sample/sample1.png)
 
-32×32 puzzle – “Tokyo Tower”
+* 32×32 puzzle – “Tokyo Tower”
 
 ![Tokyo Tower](/Sample/sample2.png)
 
-32×32 puzzle with empty grids – “Programmer”
+* 32×32 puzzle with empty grids – “Programmer”
 
 ![Programmer](/Sample/sample3.png)
 
-40×40 puzzle with empty grids – “Aurora”
+* 40×40 puzzle with empty grids – “Aurora”
 
 ![Aurora](/Sample/sample4.png)
 
-64×64 puzzle – “Elephant”
+* 64×64 puzzle – “Elephant”
 
 ![Elephant](/Sample/sample5.png)
 
-128×128 puzzle – “Velocisaurus”
+* 128×128 puzzle – “Velocisaurus”
 
 ![Velocisaurus](/Sample/sample6.png)
 
