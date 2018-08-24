@@ -1,30 +1,29 @@
-function [path, vec_fillmap] = findpathdfs(row1, col1, row2, col2, num, puzzle_row, puzzle_col, total_row, total_col)
+function [path, vec_fillmap] = findpath(start, target, distance, puzzle_row, puzzle_col, total_row, total_col)
 
 path = {};
 vec_fillmap = [];
 
-n = (num - abs(row2 - row1) - abs(col2 - col1) - 1) / 2;
+n = (distance - sum(abs(start - target))) / 2;
 
 if n < 0 || n ~= fix(n)
     return
 end
 
-startind = (puzzle_row == row1) & (puzzle_col == col1);
-targetind = (puzzle_row == row2) & (puzzle_col == col2);
+startind = (puzzle_row == start(1)) & (puzzle_col == start(2));
+targetind = (puzzle_row == target(1)) & (puzzle_col == target(2));
 puzzle_row(startind | targetind) = [];
 puzzle_col(startind | targetind) = [];
 
-minrow = max(1, min(row1, row2) - n);
-maxrow = min(total_row, max(row1, row2) + n);
-mincol = max(1, min(col1, col2) - n);
-maxcol = min(total_col, max(col1, col2) + n);
-
+minrow = max(1, min(start(1), target(1)) - n);
+maxrow = min(total_row, max(start(1), target(1)) + n);
+mincol = max(1, min(start(2), target(2)) - n);
+maxcol = min(total_col, max(target(2), target(2)) + n);
 tempind = puzzle_row >= minrow & puzzle_row <= maxrow ...
     & puzzle_col >= mincol & puzzle_col <= maxcol;
 puzzle_row = puzzle_row(tempind);
 puzzle_col = puzzle_col(tempind);
 
-path = searchpathdfs(path, num-1, [row1 col1], [row2 col2], [minrow mincol maxrow maxcol], [row1 col1], [puzzle_row, puzzle_col]);
+path = searchpath(path, distance, start, target, start, [puzzle_row, puzzle_col], total_row, total_col);
 
 if ~isempty(path)
     for ii = 1:numel(path)

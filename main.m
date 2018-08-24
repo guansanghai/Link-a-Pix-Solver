@@ -22,6 +22,8 @@ numfillmap(sub2ind([total_row, total_col], puzzle_row, puzzle_col)) = puzzle_num
 plotpuzzle;
 drawnow;
 
+%tic();
+
 %% Find Feasible Paths
 % divide points into sets
 unique_num_color_pair = unique([puzzle_num, puzzle_color],'rows');
@@ -47,17 +49,13 @@ for ii = 1:n_sets
     n_endpoint = length(temp_row);
     endpoint_pairs = nchoosek(1:n_endpoint,2);
     for jj = 1:nchoosek(n_endpoint,2)
-        row1 = temp_row(endpoint_pairs(jj,1));
-        col1 = temp_col(endpoint_pairs(jj,1));
-        id1 = find((puzzle_row == row1) & (puzzle_col == col1));
-        row2 = temp_row(endpoint_pairs(jj,2));
-        col2 = temp_col(endpoint_pairs(jj,2));
-        id2 = find((puzzle_row == row2) & (puzzle_col == col2));
-        [new_path, new_vec_fillmap] = findpathdfs(row1, col1, row2, col2, num, puzzle_row, puzzle_col, total_row, total_col);
+        start = [temp_row(endpoint_pairs(jj,1)) temp_col(endpoint_pairs(jj,1))];
+        target = [temp_row(endpoint_pairs(jj,2)) temp_col(endpoint_pairs(jj,2))];
+        [new_path, new_vec_fillmap] = findpath(start, target, num-1, puzzle_row, puzzle_col, total_row, total_col);
         if ~isempty(new_vec_fillmap)
             path_lookup = [path_lookup; new_path.'];%#ok
             temp_vec_fillmap = [temp_vec_fillmap; new_vec_fillmap];%#ok
-            vec_fillmap_pair_id = [vec_fillmap_pair_id; repmat(sort([id1, id2]), numel(new_path), 1)];%#ok
+            %vec_fillmap_pair_id = [vec_fillmap_pair_id; repmat(sort([id1, id2]), numel(new_path), 1)];%#ok
         end
     end
     vec_fillmap = [vec_fillmap; temp_vec_fillmap];%#ok
@@ -88,6 +86,8 @@ cvx_end
 weight_fix = round(weight);
 max_iter = 10000;
 tiebreak;
+
+%toc();
 
 temp_color = unique_num_color_pair(:,2);
 colorfillmap = (vec_fillmap.* temp_color(vec_fillmap_set_id)).' * weight_fix;

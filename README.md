@@ -1,6 +1,6 @@
 # Link-a-Pix Solver
 
-Solving [Link-a-Pix puzzles](http://www.conceptispuzzles.com/index.aspx?uri=puzzle/link-a-pix/history) (also known as Piczle, PathPix, Pictlink, Number Net, Paint by Pairs, etc.) using Matlab and [CVX](http://cvxr.com) toolbox. 40 puzzles from mobile game [Piczle Lines DX](https://itunes.apple.com/cn/app/piczle-lines-dx/id1015862103/) for testing are also provided.
+Solving [Link-a-Pix puzzles](http://www.conceptispuzzles.com/index.aspx?uri=puzzle/link-a-pix/history) (also known as Piczle, PathPix, Pictlink, Number Net, Paint by Pairs, etc.) using Matlab and [CVX](http://cvxr.com/cvx/beta/) toolbox. 40 puzzles from mobile game [Piczle Lines DX](https://itunes.apple.com/cn/app/piczle-lines-dx/id1015862103/) for testing are also provided.
 
 ## Platform
 
