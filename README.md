@@ -2,6 +2,11 @@
 
 Solving [Link-a-Pix puzzles](http://www.conceptispuzzles.com/index.aspx?uri=puzzle/link-a-pix/history) (also known as Piczle, PathPix, Pictlink, Number Net, Paint by Pairs, etc.) using Matlab and [CVX](http://cvxr.com/cvx/beta/) toolbox. 40 puzzles from mobile game [Piczle Lines DX](https://itunes.apple.com/cn/app/piczle-lines-dx/id1015862103/) for testing are also provided.
 
+## Cite
+
+S. Guan, J. Wang, Z. Fang and Y. Ren, “On Solving Link-a-Pix Picture Puzzles,” *IEEE Transactions on Games*, 2020. doi: [10.1109/TG.2020.3023756](https://ieeexplore.ieee.org/document/9195763).
+
+
 ## Platform
 
 * _Matlab_: R2016b or higher
@@ -32,4 +37,3 @@ Solving [Link-a-Pix puzzles](http://www.conceptispuzzles.com/index.aspx?uri=puzz
 * 128×128 puzzle – “Velocisaurus”
 
 ![Velocisaurus](/Sample/sample6.png)
-
